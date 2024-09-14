@@ -18,14 +18,7 @@ spec:
         app: reactive-mongo
     spec:
       containers:
-      - image: reactive-mongo:0.0.1-SNAPSHOT
+      - image: docker.io/library/reactive-mongo:0.0.1-SNAPSHOT
         name: reactive-mongo
         resources: {}
-        env:
-          - name: SERVER_PORT
-            value: '8080'
-          - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
-            value: http://auth-server:9000
-          - name: SFG_MONGOHOST
-            value: mongo
 status: {}

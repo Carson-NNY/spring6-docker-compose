@@ -18,10 +18,12 @@ spec:
         app: reactive
     spec:
       containers:
-      - image: spring-6-reactive:0.0.1-SNAPSHOT
-        name: spring-6-reactive
+      - image: docker.io/library/spring-6-reactive-resource-server:0.0.1-SNAPSHOT
+        name: spring-6-reactive-resource-server
         resources: {}
         env:
           - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
             value: http://auth-server:9000
+          - name: SERVER_PORT
+            value: "8080"
 status: {}

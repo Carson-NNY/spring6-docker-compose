@@ -3,27 +3,29 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: mongo
-  name: mongo
+    app: reactive-mongo
+  name: reactive-mongo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongo
+      app: reactive-mongo
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: mongo
+        app: reactive-mongo
     spec:
       containers:
-      - image: mongo
-        name: mongo
-        resources: {}
-        env:
-          - name: MONGO_INITDB_ROOT_USERNAME
-            value: root
-          - name: MONGO_INITDB_ROOT_PASSWORD
-            value: example
+        - image: docker.io/library/reactive-mongo:0.0.1-SNAPSHOT
+          name: reactive-mongo
+          resources: {}
+          env:
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: http://auth-server:9000
+            - name: SFG_MONGOHOST
+              value: mongo
+            - name: SERVER_PORT
+              value: "8080"
 status: {}

@@ -18,12 +18,12 @@ spec:
         app: gateway
     spec:
       containers:
-      - image: spring-6-gateway:0.0.1-SNAPSHOT
-        name: spring-6-gateway
-        resources: {}
-        env:
-          - name: SPRING_PROFILES_ACTIVE
-            value: docker
-          - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
-            value: http://auth-server:9000
+        - image: docker.io/library/spring-6-gateway:0.0.1-SNAPSHOT
+          name: spring-6-gateway
+          resources: {}
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: docker
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: http://auth-server:9000
 status: {}
